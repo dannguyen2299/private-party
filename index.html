@@ -1262,12 +1262,341 @@
     </section>
     <!-- END PARTY HIGHLIGHTS -->
 
+    <style>
+
+
+        .count-down.section-countdown {
+            background: linear-gradient(135deg,
+                #000000 0%,
+                #1a1410 15%,
+                #0d0d0d 30%,
+                #2d2520 45%,
+                #3d3520 50%,
+                #2d2520 55%,
+                #0d0d0d 70%,
+                #1a1410 85%,
+                #000000 100%
+            ) !important;
+            position: relative;
+            overflow: hidden;
+            padding: 40px 20px !important;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Golden glow pattern overlay */
+        .count-down.section-countdown::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(212, 175, 55, 0.2) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 45%),
+                radial-gradient(ellipse at 50% 50%, rgba(184, 134, 11, 0.12) 0%, transparent 50%);
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Shimmer effect */
+        .count-down.section-countdown::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                115deg,
+                transparent 35%,
+                rgba(212, 175, 55, 0.08) 45%,
+                rgba(255, 215, 0, 0.12) 50%,
+                rgba(212, 175, 55, 0.08) 55%,
+                transparent 65%
+            );
+            animation: luxuryShimmer 8s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes luxuryShimmer {
+            0% {
+                transform: translate(-50%, -50%) rotate(115deg);
+            }
+            100% {
+                transform: translate(50%, 50%) rotate(115deg);
+            }
+        }
+
+        /* Title styling */
+        .count-down h2.section-title {
+            position: relative;
+            z-index: 2;
+            color: #ffd700 !important;
+            text-shadow:
+                0 0 20px rgba(255, 215, 0, 0.5),
+                0 2px 4px rgba(0, 0, 0, 0.8);
+            font-size: 1.2rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 3px !important;
+            margin-bottom: 30px !important;
+            text-align: center;
+        }
+
+        /* ========================================
+           COUNTDOWN GRID - PERFECTLY CENTERED (COMPACT)
+        ======================================== */
+
+        .count-down .uk-grid-small {
+            position: relative;
+            z-index: 2;
+            /*margin: 0 auto !important;*/
+            max-width: 500px !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+            gap: 12px !important;
+            padding: 0 20px !important;
+        }
+
+        /* Each countdown item container */
+        .count-down .uk-grid-small > div {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            flex: 0 0 auto !important;
+            min-width: 75px !important;
+            margin: 0 !important;
+        }
+
+        /* ========================================
+           COUNTDOWN BOXES - LUXURY DESIGN (COMPACT)
+        ======================================== */
+
+        .count-down .blur-bg {
+            background: linear-gradient(135deg,
+                rgba(10, 10, 10, 0.95) 0%,
+                rgba(45, 37, 32, 0.85) 30%,
+                rgba(61, 53, 32, 0.8) 50%,
+                rgba(45, 37, 32, 0.85) 70%,
+                rgba(10, 10, 10, 0.95) 100%
+            ) !important;
+            backdrop-filter: blur(15px) saturate(150%);
+            border: 1px solid rgba(212, 175, 55, 0.4) !important;
+            border-radius: 10px !important;
+            padding: 12px 10px !important;
+            min-width: 75px !important;
+            width: 75px !important;
+            height: auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 auto !important;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.6),
+                0 2px 8px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(212, 175, 55, 0.3),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Box shine effect */
+        .count-down .blur-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(212, 175, 55, 0.15) 50%,
+                transparent 70%
+            );
+            animation: boxShine 4s ease-in-out infinite;
+        }
+
+        @keyframes boxShine {
+            0%, 100% {
+                transform: translate(-100%, -100%);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+        /* Hover effect */
+        .count-down .blur-bg:hover {
+            border-color: rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg,
+                rgba(15, 15, 15, 0.98) 0%,
+                rgba(61, 53, 32, 0.9) 30%,
+                rgba(77, 66, 40, 0.85) 50%,
+                rgba(61, 53, 32, 0.9) 70%,
+                rgba(15, 15, 15, 0.98) 100%
+            ) !important;
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.7),
+                0 0 30px rgba(212, 175, 55, 0.4),
+                0 0 60px rgba(255, 215, 0, 0.2),
+                inset 0 1px 0 rgba(255, 215, 0, 0.4);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* ========================================
+           COUNTDOWN NUMBERS & LABELS (COMPACT)
+        ======================================== */
+
+        .count-down .uk-countdown-number {
+            color: #ffd700 !important;
+            text-shadow:
+                0 0 10px rgba(255, 215, 0, 0.6),
+                0 0 20px rgba(212, 175, 55, 0.4),
+                0 2px 4px rgba(0, 0, 0, 0.8);
+            font-size: 1.6rem !important;
+            font-weight: 700 !important;
+            line-height: 1.2 !important;
+            text-align: center !important;
+            width: 100% !important;
+            display: block !important;
+            margin-bottom: 5px !important;
+            position: relative;
+            z-index: 1;
+        }
+
+        .count-down .uk-countdown-label {
+            color: #d4af37 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+            font-size: 0.7rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            text-align: center !important;
+            width: 100% !important;
+            display: block !important;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN (COMPACT & NO OVERLAP)
+        ======================================== */
+
+        @media (max-width: 768px) {
+            .count-down.section-countdown {
+                padding: 30px 15px !important;
+                min-height: 280px;
+            }
+
+            .count-down h2.section-title {
+                font-size: 1rem !important;
+                margin-bottom: 20px !important;
+            }
+
+            .count-down .uk-grid-small {
+                max-width: 100% !important;
+                gap: 10px !important;
+                padding: 0 15px !important;
+            }
+
+            .count-down .uk-grid-small > div {
+                min-width: 70px !important;
+            }
+
+            .count-down .blur-bg {
+                padding: 10px 8px !important;
+                min-width: 70px !important;
+                width: 70px !important;
+            }
+
+            .count-down .uk-countdown-number {
+                font-size: 1.4rem !important;
+            }
+
+            .count-down .uk-countdown-label {
+                font-size: 0.65rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .count-down.section-countdown {
+                padding: 25px 10px !important;
+                min-height: 260px;
+            }
+
+            .count-down h2.section-title {
+                font-size: 0.9rem !important;
+                letter-spacing: 2px !important;
+            }
+
+            .count-down .uk-grid-small {
+                gap: 8px !important;
+                padding: 0 10px !important;
+            }
+
+            .count-down .uk-grid-small > div {
+                min-width: 65px !important;
+            }
+
+            .count-down .blur-bg {
+                padding: 8px 6px !important;
+                min-width: 65px !important;
+                width: 65px !important;
+            }
+
+            .count-down .uk-countdown-number {
+                font-size: 1.2rem !important;
+            }
+
+            .count-down .uk-countdown-label {
+                font-size: 0.6rem !important;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .count-down .uk-grid-small {
+                gap: 6px !important;
+                padding: 0 8px !important;
+            }
+
+            .count-down .uk-grid-small > div {
+                min-width: 60px !important;
+            }
+
+            .count-down .blur-bg {
+                padding: 8px 5px !important;
+                min-width: 60px !important;
+                width: 60px !important;
+            }
+
+            .count-down .uk-countdown-number {
+                font-size: 1.1rem !important;
+            }
+
+            .count-down .uk-countdown-label {
+                font-size: 0.55rem !important;
+            }
+        }
+    </style>
+
     <!-- COUNTDOWN END INVITATION-->
     <section id="countdown-section" class="">
         <div class="container">
             <!-- COUNTDOWN -->
 
-            <div class="count-down section-countdown img_bg bg_overlay" style="background-image:url(media/z7508937742193_f37ff0fd20f46ef222cffaf37c1e6933.jpg">
+            <div class="count-down section-countdown">
 
                 <h2 style="font-size:20px;" class="section-title party-title-main">
                     COUNTDOWN TO THE PARTY
