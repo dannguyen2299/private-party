@@ -14,15 +14,15 @@
     <meta property="og:url" content="https://dannguyen2299.github.io/private-party/">
     <meta property="og:site_name" content="Private Party by TAM">
     <meta property="og:updated_time" content="2026-02-06T11:56:14+00:00">
-    <meta property="og:image" content="https://dannguyen2299.github.io/private-party/media/1.jpg">
-    <meta property="og:image:secure_url" content="https://dannguyen2299.github.io/private-party/media/1.jpg">
+    <meta property="og:image" content="https://dannguyen2299.github.io/private-party/media/preview.jpg">
+    <meta property="og:image:secure_url" content="https://dannguyen2299.github.io/private-party/media/preview.jpg">
     <meta property="og:image:width" content="961">
     <meta property="og:image:height" content="1440">
     <meta property="og:image:alt" content="Private Party Invitation">
     <meta property="og:image:type" content="image/jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Private Party by TAM">
-    <meta name="twitter:image" content="https://dannguyen2299.github.io/private-party/media/1.jpg">
+    <meta name="twitter:image" content="https://dannguyen2299.github.io/private-party/media/preview.jpg">
     <!-- /Rank Math WordPress SEO plugin -->
 
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
@@ -570,24 +570,27 @@
             position: relative;
             display: inline-block;
             filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+            /* Fix text bị cắt */
+            overflow: visible !important;
+            padding: 5px 10px;
         }
 
         .gold-text-ultra::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
+            top: -5px;
+            left: -10%;
             width: 50%;
-            height: 100%;
+            height: calc(100% + 10px);
             background: linear-gradient(
                 90deg,
                 transparent,
-                rgba(255, 255, 255, 0.6),
+                rgba(255, 255, 255, 0.4),
                 transparent
             );
             animation: shineSweep 6s ease-in-out infinite;
             pointer-events: none;
-            z-index: 1;
+            z-index: -1;
         }
 
         .gold-text-slow { animation-duration: 6s !important; }
@@ -596,6 +599,13 @@
             .gold-text-bling,
             .gold-text-ultra {
                 animation-duration: 5s !important;
+                /* Fix text bị cắt trên mobile */
+                padding: 8px 15px !important;
+                overflow: visible !important;
+            }
+
+            .gold-text-ultra::before {
+                opacity: 0.3; /* Giảm opacity trên mobile */
             }
         }
 
@@ -831,7 +841,7 @@
 
     <!-- Background Music -->
     <audio id="audio" loop preload="auto" autoplay muted>
-        <source src="./media/Kiss The Rain.mp3" type="audio/mpeg">
+        <source src="./media/Breaking Rust Walk My Walk Lyrics.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -1794,38 +1804,38 @@
                     </div>
 
                     <!-- Number of Guests -->
-                    <div class="rsvp-field">
-                        <label>Number of Guests
-<!--                            <span style="color: var(&#45;&#45;party-gold);">*</span>-->
-                        </label>
-                        <div class="rsvp-radio-group rsvp-guests-group">
-                            <label class="rsvp-radio-label rsvp-radio-inline">
-                                <input type="radio" name="guests" value="1" required>
-                                <span>1</span>
-                            </label>
-                            <label class="rsvp-radio-label rsvp-radio-inline">
-                                <input type="radio" name="guests" value="2">
-                                <span>2</span>
-                            </label>
-                            <label class="rsvp-radio-label rsvp-radio-inline">
-                                <input type="radio" name="guests" value="3">
-                                <span>3</span>
-                            </label>
-
+<!--                    <div class="rsvp-field">-->
+<!--                        <label>Number of Guests-->
+<!--&lt;!&ndash;                            <span style="color: var(&#45;&#45;party-gold);">*</span>&ndash;&gt;-->
+<!--                        </label>-->
+<!--                        <div class="rsvp-radio-group rsvp-guests-group">-->
 <!--                            <label class="rsvp-radio-label rsvp-radio-inline">-->
-<!--                                <input type="radio" name="guests" value="other" id="guests-other">-->
-<!--                                <span>Other:</span>-->
+<!--                                <input type="radio" name="guests" value="1" required>-->
+<!--                                <span>1</span>-->
 <!--                            </label>-->
-<!--                            <input type="number" id="rsvp-guests-other" name="guestsOther" min="1" placeholder="#" style="width: 80px; margin-left: 10px; display: none;">-->
-                        </div>
-                        <span class="rsvp-error" id="error-guests"></span>
-                    </div>
+<!--                            <label class="rsvp-radio-label rsvp-radio-inline">-->
+<!--                                <input type="radio" name="guests" value="2">-->
+<!--                                <span>2</span>-->
+<!--                            </label>-->
+<!--                            <label class="rsvp-radio-label rsvp-radio-inline">-->
+<!--                                <input type="radio" name="guests" value="3">-->
+<!--                                <span>3</span>-->
+<!--                            </label>-->
+
+<!--&lt;!&ndash;                            <label class="rsvp-radio-label rsvp-radio-inline">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="radio" name="guests" value="other" id="guests-other">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <span>Other:</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </label>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <input type="number" id="rsvp-guests-other" name="guestsOther" min="1" placeholder="#" style="width: 80px; margin-left: 10px; display: none;">&ndash;&gt;-->
+<!--                        </div>-->
+<!--                        <span class="rsvp-error" id="error-guests"></span>-->
+<!--                    </div>-->
 
                     <!-- Notes -->
-                    <div class="rsvp-field">
-                        <label for="rsvp-notes">Notes or Special Requests</label>
-                        <textarea id="rsvp-notes" name="notes" rows="4" placeholder="Any dietary restrictions, song requests, or messages for the host..."></textarea>
-                    </div>
+<!--                    <div class="rsvp-field">-->
+<!--                        <label for="rsvp-notes">Notes or Special Requests</label>-->
+<!--                        <textarea id="rsvp-notes" name="notes" rows="4" placeholder="Any dietary restrictions, song requests, or messages for the host..."></textarea>-->
+<!--                    </div>-->
 
                     <!-- Submit Button -->
                     <button type="submit" class="rsvp-submit-btn">
