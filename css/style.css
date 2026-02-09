@@ -885,7 +885,7 @@ main{
     background-size: cover;
 }
 .count-down .section-title {
-    color: var(--text-white);
+    color: var(--text-white) !important;
 }
 #countdown {
     margin-top: 40px;
