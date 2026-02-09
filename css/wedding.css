@@ -878,8 +878,38 @@ aspect-ratio: 1/1;
     
 }
 .section-countdown {
-	padding: 120px 0;
+	padding: 120px 0; /* Giữ nguyên padding ban đầu */
 }
+
+/* Desktop/PC - Tối ưu chiều cao và background */
+@media (min-width: 768px) {
+	.section-countdown {
+		min-height: 400px;
+		background-position: center center !important;
+		background-size: cover !important;
+		background-repeat: no-repeat !important;
+		position: relative;
+		padding: 80px 0;
+	}
+}
+
+/* Desktop lớn */
+@media (min-width: 1024px) {
+	.section-countdown {
+		min-height: 450px;
+		padding: 100px 0;
+		background-attachment: scroll;
+	}
+}
+
+/* Mobile - Giữ nguyên hoàn toàn như ban đầu (không có min-height, không có background overrides) */
+@media (max-width: 767px) {
+	.section-countdown {
+		padding: 120px 0; /* Padding gốc ban đầu */
+		/* Không override background properties - để img_bg class xử lý */
+	}
+}
+
 /* footer */
 
 footer {

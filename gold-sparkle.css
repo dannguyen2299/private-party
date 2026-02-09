@@ -1,0 +1,203 @@
+/* ========================================
+   GOLD SPARKLE EFFECT SYSTEM
+   Ánh sao lấp lánh xung quanh text vàng
+   Professional & Elegant Animation
+========================================= */
+
+/* ========================================
+   BASE GOLD TEXT STYLE
+========================================= */
+
+.gold-sparkle {
+    position: relative;
+    display: inline-block;
+    color: #ffd700;
+    font-weight: 700;
+    text-shadow:
+        0 0 10px rgba(255, 215, 0, 0.3),
+        0 0 20px rgba(255, 215, 0, 0.2),
+        2px 2px 3px rgba(0, 0, 0, 0.1);
+    /* Glow nhẹ cho text */
+}
+
+/* Container cho sparkles */
+.gold-sparkle-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* ========================================
+   SPARKLE PARTICLES
+========================================= */
+
+.sparkle-particle {
+    position: absolute;
+    pointer-events: none;
+    color: #fff;
+    text-shadow:
+        0 0 5px rgba(255, 215, 0, 1),
+        0 0 10px rgba(255, 215, 0, 0.8);
+    font-size: 8px;
+    opacity: 0;
+    z-index: 1;
+    animation: sparkleFloat 2s ease-in-out forwards;
+}
+
+/* Variations cho sparkle size */
+.sparkle-particle.small {
+    font-size: 6px;
+}
+
+.sparkle-particle.medium {
+    font-size: 8px;
+}
+
+.sparkle-particle.large {
+    font-size: 12px;
+}
+
+/* ========================================
+   SPARKLE ANIMATIONS
+========================================= */
+
+@keyframes sparkleFloat {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0) rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(45deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(var(--float-x, 10px), var(--float-y, -10px)) scale(1.2) rotate(180deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(var(--float-x, 10px) * 1.5), calc(var(--float-y, -10px) * 1.5)) scale(0) rotate(360deg);
+    }
+}
+
+/* Animation cho sparkle twinkle (nháy) */
+@keyframes sparkleTwinkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
+}
+
+/* Alternative animation - slower */
+@keyframes sparkleFloatSlow {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0);
+    }
+    15% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    60% {
+        opacity: 0.8;
+        transform: translate(var(--float-x, 10px), var(--float-y, -10px)) scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(var(--float-x, 10px) * 2), calc(var(--float-y, -10px) * 2)) scale(0);
+    }
+}
+
+/* ========================================
+   GLOW PULSE (Optional)
+========================================= */
+
+.gold-sparkle.with-glow {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow:
+            0 0 10px rgba(255, 215, 0, 0.3),
+            0 0 20px rgba(255, 215, 0, 0.2),
+            2px 2px 3px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        text-shadow:
+            0 0 15px rgba(255, 215, 0, 0.5),
+            0 0 25px rgba(255, 215, 0, 0.3),
+            0 0 35px rgba(255, 215, 0, 0.2),
+            2px 2px 3px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* ========================================
+   INTENSITY VARIANTS
+========================================= */
+
+/* Subtle - Ít sparkle, chậm */
+.gold-sparkle.subtle .sparkle-particle {
+    animation-duration: 3s;
+}
+
+/* Intense - Nhiều sparkle, nhanh */
+.gold-sparkle.intense .sparkle-particle {
+    animation-duration: 1.5s;
+}
+
+/* ========================================
+   DISABLE ANIMATION (Tắt hiệu ứng)
+========================================= */
+
+.gold-sparkle.no-animation .sparkle-particle {
+    display: none;
+}
+
+.gold-sparkle.paused .sparkle-particle {
+    animation-play-state: paused;
+}
+
+/* ========================================
+   MOBILE OPTIMIZATION
+========================================= */
+
+@media (max-width: 768px) {
+    .sparkle-particle {
+        animation-duration: 2.5s; /* Chậm hơn trên mobile */
+    }
+
+    .sparkle-particle.large {
+        font-size: 10px; /* Nhỏ hơn trên mobile */
+    }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .sparkle-particle {
+        animation: none;
+        display: none;
+    }
+
+    .gold-sparkle.with-glow {
+        animation: none;
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES
+========================================= */
+
+/* Hide sparkles initially (before door opens) */
+.sparkles-hidden .sparkle-particle {
+    display: none;
+}
+
+/* Fade in sparkles smoothly */
+.sparkles-visible {
+    transition: opacity 0.5s ease-in;
+}
+

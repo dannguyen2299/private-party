@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Sparkle Effect - Demo & Documentation</title>
+    <link rel="stylesheet" href="gold-sparkle.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #f0f0f0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 60px;
+            font-size: 1.2rem;
+        }
+
+        .demo-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .demo-section h2 {
+            color: #ffd700;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .demo-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .demo-item h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .demo-text {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .code-block {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .code-block code {
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+            color: #1a1a1a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: #333;
+            color: #ffd700;
+            border: 1px solid #ffd700;
+        }
+
+        .btn-secondary:hover {
+            background: #444;
+        }
+
+        .info-box {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .info-box h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .config-table th,
+        .config-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .config-table th {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+        }
+
+        .slider-control {
+            margin: 20px 0;
+        }
+
+        .slider-control label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .slider-control input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #333;
+            outline: none;
+        }
+
+        .slider-control input[type="range"]::-webkit-slider-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ffd700;
+            cursor: pointer;
+        }
+
+        .value-display {
+            display: inline-block;
+            background: #333;
+            padding: 5px 15px;
+            border-radius: 4px;
+            margin-left: 10px;
+            color: #ffd700;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="gold-sparkle with-glow">✨ Gold Sparkle Effect ✨</h1>
+        <p class="subtitle">Ánh sao lấp lánh xung quanh chữ vàng - Professional Animation System</p>
+
+        <!-- Demo 1: Basic Usage -->
+        <div class="demo-section">
+            <h2>📌 1. Basic Usage (Sử dụng cơ bản)</h2>
+
+            <div class="demo-item">
+                <h3>Chỉ cần thêm class <code>gold-sparkle</code></h3>
+                <div class="demo-text gold-sparkle">PRIVATE PARTY</div>
+
+                <div class="code-block">
+                    <code>&lt;h1 class="gold-sparkle"&gt;PRIVATE PARTY&lt;/h1&gt;</code>
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>Text nhỏ hơn</h3>
+                <div class="demo-text gold-sparkle" style="font-size: 2rem;">Welcome to Our Event</div>
+
+                <div class="code-block">
+                    <code>&lt;h2 class="gold-sparkle"&gt;Welcome to Our Event&lt;/h2&gt;</code>
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>Inline text</h3>
+                <p style="font-size: 1.5rem;">Join us for a <span class="gold-sparkle">special celebration</span> this weekend</p>
+
+                <div class="code-block">
+                    <code>&lt;p&gt;Join us for a &lt;span class="gold-sparkle"&gt;special celebration&lt;/span&gt;&lt;/p&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demo 2: With Glow -->
+        <div class="demo-section">
+            <h2>📌 2. With Glow Effect (Với ánh sáng)</h2>
+
+            <div class="demo-item">
+                <h3>Thêm class <code>with-glow</code> để có hiệu ứng glow pulse</h3>
+                <div class="demo-text gold-sparkle with-glow">GRAND OPENING</div>
+
+                <div class="code-block">
+                    <code>&lt;h1 class="gold-sparkle with-glow"&gt;GRAND OPENING&lt;/h1&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demo 3: Intensity Control -->
+        <div class="demo-section">
+            <h2>📌 3. Intensity Variants (Cường độ)</h2>
+
+            <div class="demo-item">
+                <h3>Subtle - Ít sparkle, chậm</h3>
+                <div class="demo-text gold-sparkle subtle">EXCLUSIVE EVENT</div>
+
+                <div class="code-block">
+                    <code>&lt;h1 class="gold-sparkle subtle"&gt;EXCLUSIVE EVENT&lt;/h1&gt;</code>
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>Intense - Nhiều sparkle, nhanh</h3>
+                <div class="demo-text gold-sparkle intense">VIP PARTY</div>
+
+                <div class="code-block">
+                    <code>&lt;h1 class="gold-sparkle intense"&gt;VIP PARTY&lt;/h1&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Controls -->
+        <div class="demo-section">
+            <h2>🎮 Interactive Controls (Điều khiển)</h2>
+
+            <div class="demo-item">
+                <h3>Test Area</h3>
+                <div id="test-text" class="demo-text gold-sparkle">YOUR TEXT HERE</div>
+
+                <div class="controls">
+                    <button class="btn btn-primary" onclick="enableSparkles()">▶️ Bật Sparkles</button>
+                    <button class="btn btn-primary" onclick="disableSparkles()">⏸️ Tắt Sparkles</button>
+                    <button class="btn btn-secondary" onclick="toggleSparkles()">🔄 Toggle</button>
+                </div>
+
+                <div class="slider-control">
+                    <label>
+                        Sparkle Intensity (1-10):
+                        <span class="value-display" id="intensity-value">5</span>
+                    </label>
+                    <input type="range" min="1" max="10" value="5" id="intensity-slider"
+                           oninput="updateIntensity(this.value)">
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration Table -->
+        <div class="demo-section">
+            <h2>⚙️ Configuration Options</h2>
+
+            <table class="config-table">
+                <thead>
+                    <tr>
+                        <th>Tham số</th>
+                        <th>Mặc định</th>
+                        <th>Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>sparkleCount</code></td>
+                        <td>3</td>
+                        <td>Số sparkle mỗi lần xuất hiện (1-5)</td>
+                    </tr>
+                    <tr>
+                        <td><code>interval</code></td>
+                        <td>800ms</td>
+                        <td>Thời gian giữa các lần tạo sparkle</td>
+                    </tr>
+                    <tr>
+                        <td><code>animationDuration</code></td>
+                        <td>2000ms</td>
+                        <td>Thời gian animation của mỗi sparkle</td>
+                    </tr>
+                    <tr>
+                        <td><code>sparkleChars</code></td>
+                        <td>['✦', '✧', '⋆', '✨']</td>
+                        <td>Ký tự sử dụng cho sparkle</td>
+                    </tr>
+                    <tr>
+                        <td><code>delayAfterDoor</code></td>
+                        <td>2000ms</td>
+                        <td>Delay sau khi cửa mở</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>💡 Chỉnh mật độ sparkle:</h4>
+                <div class="code-block">
+                    <code>
+// Trong gold-sparkle.js, thay đổi:<br>
+sparkleCount: 3,     // 1-5: Số sparkle mỗi lần<br>
+interval: 800,       // 500-1500: Thời gian giữa các lần (ms)<br>
+                    </code>
+                </div>
+                <p><strong>Công thức:</strong> Ít sparkle = tăng interval, giảm sparkleCount<br>
+                Nhiều sparkle = giảm interval, tăng sparkleCount</p>
+            </div>
+
+            <div class="info-box">
+                <h4>⚡ Chỉnh tốc độ sparkle:</h4>
+                <div class="code-block">
+                    <code>
+// Trong gold-sparkle.js, thay đổi:<br>
+animationDuration: 2000,  // 1000-3000: Tốc độ chạy (ms)<br>
+                    </code>
+                </div>
+                <p><strong>Công thức:</strong> Nhanh = giảm animationDuration<br>
+                Chậm = tăng animationDuration</p>
+            </div>
+        </div>
+
+        <!-- JavaScript API -->
+        <div class="demo-section">
+            <h2>📜 JavaScript API</h2>
+
+            <div class="code-block">
+                <code>
+// Bật/tắt sparkles<br>
+enableSparkles();    // Bật<br>
+disableSparkles();   // Tắt<br>
+toggleSparkles();    // Toggle<br>
+<br>
+// Chỉnh mật độ (1-10)<br>
+setSparkleIntensity(5);  // Trung bình<br>
+setSparkleIntensity(1);  // Ít nhất<br>
+setSparkleIntensity(10); // Nhiều nhất<br>
+<br>
+// Truy cập instance<br>
+window.goldSparkle.stop();     // Dừng<br>
+window.goldSparkle.start();    // Bắt đầu<br>
+window.goldSparkle.updateConfig({<br>
+    sparkleCount: 5,<br>
+    interval: 600<br>
+});
+                </code>
+            </div>
+        </div>
+
+        <!-- Integration Guide -->
+        <div class="demo-section">
+            <h2>🔧 Integration Guide (Hướng dẫn tích hợp)</h2>
+
+            <div class="info-box">
+                <h4>1. Thêm vào HTML:</h4>
+                <div class="code-block">
+                    <code>
+&lt;!-- Trong &lt;head&gt; --&gt;<br>
+&lt;link rel="stylesheet" href="gold-sparkle.css"&gt;<br>
+<br>
+&lt;!-- Trước &lt;/body&gt; --&gt;<br>
+&lt;script src="gold-sparkle.js"&gt;&lt;/script&gt;
+                    </code>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>2. Sử dụng trong HTML:</h4>
+                <div class="code-block">
+                    <code>
+&lt;h1 class="gold-sparkle"&gt;PRIVATE PARTY&lt;/h1&gt;<br>
+&lt;h2 class="gold-sparkle with-glow"&gt;March 13, 2026&lt;/h2&gt;<br>
+&lt;p&gt;Join us for &lt;span class="gold-sparkle"&gt;VIP Event&lt;/span&gt;&lt;/p&gt;
+                    </code>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>3. Customize (Tùy chỉnh):</h4>
+                <div class="code-block">
+                    <code>
+// Trong gold-sparkle.js, dòng ~184:<br>
+const sparkleConfig = {<br>
+    sparkleCount: 3,        // ← Thay đổi số lượng<br>
+    interval: 800,          // ← Thay đổi tần suất<br>
+    animationDuration: 2000,// ← Thay đổi tốc độ<br>
+    enabled: true<br>
+};
+                    </code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Tips -->
+        <div class="demo-section">
+            <h2>⚡ Performance Tips</h2>
+
+            <div class="info-box">
+                <h4>✅ Best Practices:</h4>
+                <ul style="line-height: 1.8; margin-left: 20px;">
+                    <li>Chỉ dùng cho 2-3 text quan trọng nhất trên trang</li>
+                    <li>Tránh dùng cho text quá dài (> 20 ký tự)</li>
+                    <li>Trên mobile tự động giảm intensity</li>
+                    <li>Tự động tắt khi user bật "reduce motion"</li>
+                    <li>Sparkle tự động cleanup sau khi animation xong</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h4>❌ Tránh:</h4>
+                <ul style="line-height: 1.8; margin-left: 20px;">
+                    <li>Không dùng cho nhiều text cùng lúc (> 5 elements)</li>
+                    <li>Không dùng intensity cao (> 8) trên mobile</li>
+                    <li>Không set interval quá nhỏ (< 500ms)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="gold-sparkle.js"></script>
+    <script>
+        function updateIntensity(value) {
+            document.getElementById('intensity-value').textContent = value;
+            setSparkleIntensity(parseInt(value));
+        }
+    </script>
+</body>
+</html>
+
